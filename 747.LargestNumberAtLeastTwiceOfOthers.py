@@ -1,5 +1,3 @@
-from typing import List
-
 '''
 In a given integer array nums, there is always exactly one largest element.
 
@@ -27,6 +25,7 @@ Note:
 1. nums will have a length in the range [1, 50].
 2. Every nums[i] will be an integer in the range [0, 99].
 '''
+from typing import List
 
 class Solution:
     def dominantIndex(self, nums: List[int]) -> int:

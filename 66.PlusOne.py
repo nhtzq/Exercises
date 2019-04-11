@@ -1,5 +1,3 @@
-from typing import List
-
 '''
 Given a non-empty array of digits representing a non-negative integer, plus one to the integer.
 
@@ -18,6 +16,7 @@ Input: [4,3,2,1]
 Output: [4,3,2,2]
 Explanation: The array represents the integer 4321.
 '''
+from typing import List
 
 class Solution1:
     def plusOne(self, digits: List[int]) -> List[int]:
