@@ -98,8 +98,32 @@ class Solution2:
                 
         return res
 
+class Solution3:
+    '''
+    In this solution, it also uses the idea of sums of coordinates are the same for numbers on the same diagonal. 
+    In the list of entries, each element is a tuple. 
+    First item in the tuple is the sum of coordinates representing the diagonal. 
+    The second item in the tuple would be either col idx j or row idx i of the number, if (i + j) is odd, i.e. (i^j) is odd, (i^j)&1 would be 1, (j, i)[1] would be i, vice versa, if (i + j) is even, it would be j. The second item in the tuple is to decide the order withing the same diagonal, since the order of numbers on odd diagonals and that of those on even diagonals are reverse.
+    The third item in the tuple is the number itself.
+    When sorting the entries, the first item in each tuple would first be used, which is the sum of coordinates. Then the second item would be used, which is determined by the parity of the sum.
+    '''
+    def findDiagonalOrder(self, matrix: List[List[int]]) -> List[int]:
+        entries = [(i+j, (j, i)[(i^j)&1], val)
+                for i, row in enumerate(matrix)
+                for j, val in enumerate(row)]
+
+        print(entries)
+        print(sorted(entries))
+
+        return [e[2] for e in sorted(entries)]
+
 if __name__ == '__main__':
-    s = Solution2()
+    # s = Solution2()
+    # matrix = [[1,2,3],[4,5,6],[7,8,9]]
+    # ans = s.findDiagonalOrder(matrix)
+    # print(ans)
+    s = Solution3()
     matrix = [[1,2,3],[4,5,6],[7,8,9]]
     ans = s.findDiagonalOrder(matrix)
     print(ans)
+    
